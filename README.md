@@ -276,5 +276,16 @@
     - WYSIWYG(What You See Is What You Get) 방식의 GUI 프로그램 개발
 
 ## 4일차
+- 윈폼 UI 개발
+    - Winforms로 윈폼 개발 학습
+    - 컨트롤 Prefix
+        - ComboBox : Cbo-
+        - CheckBox : Chk-
+        - RadioButton : Rdo-
+        - TextBox : Txt-
+        - Button : Btn-
+
+
+
 - 예제 프로젝트
 - WPF
