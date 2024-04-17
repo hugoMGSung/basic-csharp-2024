@@ -303,6 +303,10 @@
         - 리치텍스트박스(like MSWord, 한글워드)로 파일저장
 
     - 비동기 작업 앱
+        - 가장 트렌드가 되는 작업방법
+        - 백그라운드 처리는 Thread, BackgroundWorker와 유사
+        - async, await 키워드
+
     - 윈도우 탐색기 앱
     - 도서관리 앱 with SQL Server
     - ModernUI 앱
