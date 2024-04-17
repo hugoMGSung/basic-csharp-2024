@@ -42,4 +42,12 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Sources\basic-csharp-2024\day05\cs05_winform_app\ex19_asyncs\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Sources\basic-csharp-2024\day05\cs05_winform_app\ex19_asyncs\.editorconfig" />
+  </ItemGroup>
+
 </Project>
