@@ -312,14 +312,26 @@
         ![비동기앱](https://raw.githubusercontent.com/hugoMGSung/basic-csharp-2024/main/images/cs004.png)
 
 ## 6일차
-- 예제 프로젝트
-    - 윈도우 탐색기 앱
-    - 도서관리 앱 with SQL Server
-    - ModernUI 앱
-    - 국가교통정보센터 CCTV뷰 앱
-    - IoT Dummy 앱 with SQL Server
+- 토이 프로젝트
+    - 윈도우 탐색기 앱(컨트롤학습)
+        - MyExplorer 프로젝트 생성
+        - 아이콘검색, png 2 ico 구글링 웹사이트
+        - 트리뷰, 리스트뷰 기능 추가
 
-## 개인 포트폴리오
+        ![중간결과](https://raw.githubusercontent.com/hugoMGSung/basic-csharp-2024/main/images/cs005.png)
+
+        - 미적용 - 컨텍스트메뉴 보기 기능, 더블클릭 프로그램 실행, ...
+
+## 7일차
+- 토이 프로젝트
+    - 윈도우 탐색기 앱 종료
+    - ModernUI 앱(UI 디자인)
+    - 도서관리 앱 with SQL Server(Base)
+    - 국가교통정보센터 CCTV뷰 앱(OpenAPI, NuGet dll, Network)
+    - IoT Dummy 앱 with SQL Server(IoT, DB)
+
+
+## 개인 토이프로젝트
 - 심플 메모장앱
     - 기능....
     - 특징
