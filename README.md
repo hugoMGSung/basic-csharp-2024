@@ -325,9 +325,9 @@
 ## 7일차
 - 토이 프로젝트
     - 윈도우 탐색기 앱 종료
-        - 실행결과
+        - 실행결과       
 
-        
+        https://github.com/hugoMGSung/basic-csharp-2024/assets/59336331/1b35f8bb-3edf-4b2f-b860-0ea1212b0a73
     
 
     - 도서관리 앱 with SQL Server(Base) ModernUI(NuGet패키지) 
