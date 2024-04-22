@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ax.Fw.MetroFramework" Version="14.3.221" />
+    <PackageReference Include="MetroModernUI" Version="1.4.0" />
   </ItemGroup>
 
 </Project>
