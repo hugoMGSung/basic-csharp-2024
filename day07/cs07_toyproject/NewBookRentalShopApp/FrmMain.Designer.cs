@@ -74,8 +74,9 @@
             // MnuExit
             // 
             this.MnuExit.Name = "MnuExit";
-            this.MnuExit.Size = new System.Drawing.Size(125, 22);
+            this.MnuExit.Size = new System.Drawing.Size(180, 22);
             this.MnuExit.Text = "끝내기(&X)";
+            this.MnuExit.Click += new System.EventHandler(this.MnuExit_Click);
             // 
             // 관리MToolStripMenuItem
             // 

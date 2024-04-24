@@ -80,23 +80,32 @@ namespace NewBookRentalShopApp
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            var valid = true;
+            var errMsg = "";
+
             // 입력검증(Validation Check), 아이디, 패스워드를 안넣으면 
             if (string.IsNullOrEmpty(TxtAuthor.Text))
             {
-                MessageBox.Show("저자명을 입력하세요.");
-                return;
+                errMsg += "저자명을 입력하세요.\n";
+                valid = false;
             }
 
             // 콤보박스는 SelectedIndex가 -1이 되면 안됨
             if (CboDivision.SelectedIndex < 0)
             {
-                MessageBox.Show("구분명을 선택하세요.");
-                return;
+                errMsg += "구문명을 선택하세요.\n";
+                valid = false;
             }
 
             if (string.IsNullOrEmpty(TxtNames.Text))
             {
-                MessageBox.Show("책제목을 입력하세요.");
+                errMsg += "책제목을 입력하세요.";
+                valid = false;
+            }
+
+            if (valid == false)
+            {
+                MetroMessageBox.Show(this.Parent.Parent, errMsg, "입력오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -165,19 +174,19 @@ namespace NewBookRentalShopApp
                     if (result > 0)
                     {
                         // this 메시지박스의 부모창이 누구냐, FrmLoginUser
-                        MetroMessageBox.Show(this, "저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //MessageBox.Show("저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MetroMessageBox.Show(this.Parent.Parent, "저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //("저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MetroMessageBox.Show(this, "저장실패!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MetroMessageBox.Show(this.Parent.Parent, "저장실패!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, $"오류  : {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this.Parent.Parent, $"오류  : {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             TxtBookIdx.Text = TxtAuthor.Text = string.Empty; // 입력, 수정, 삭제 이후에는 모든 입력값을 지워줘야 함
@@ -192,11 +201,11 @@ namespace NewBookRentalShopApp
         {
             if (string.IsNullOrEmpty(TxtBookIdx.Text))  // 책 순번이 없으며
             {
-                MetroMessageBox.Show(this, "삭제할 책을 선택하세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this.Parent.Parent, "삭제할 책을 선택하세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var answer = MetroMessageBox.Show(this, "정말 삭제하시겠습니까?", "삭제여부", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var answer = MetroMessageBox.Show(this.Parent.Parent, "정말 삭제하시겠습니까?", "삭제여부", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (answer == DialogResult.No) return;
 
             using (SqlConnection conn = new SqlConnection(Helper.Common.ConnString))
@@ -212,11 +221,11 @@ namespace NewBookRentalShopApp
 
                 if (result > 0)
                 {
-                    MetroMessageBox.Show(this, "삭제성공!", "삭제", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MetroMessageBox.Show(this.Parent.Parent, "삭제성공!", "삭제", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } 
                 else
                 {
-                    MetroMessageBox.Show(this, "삭제실패!", "삭제", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(this.Parent.Parent, "삭제실패!", "삭제", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
             }
@@ -287,7 +296,7 @@ namespace NewBookRentalShopApp
                 NudPrice.Value = Decimal.Parse(selData.Cells[7].Value.ToString());
 
                 // 콤보박스는 맨 마지막에
-                //MessageBox.Show(selData.Cells[3].Value.ToString());
+                //(selData.Cells[3].Value.ToString());
                 CboDivision.SelectedValue = selData.Cells[2].Value; // 구분코드로 선택해야함!!
 
                 isNew = false;  // UPDATE

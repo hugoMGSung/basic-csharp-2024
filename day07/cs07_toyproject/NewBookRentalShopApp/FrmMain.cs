@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -109,6 +102,15 @@ namespace NewBookRentalShopApp
             FrmAbout popup = new FrmAbout();
             popup.StartPosition = FormStartPosition.CenterParent;
             popup.ShowDialog();
+        }
+
+        private void MnuExit_Click(object sender, EventArgs e)
+        {
+            var res = MetroMessageBox.Show(this, "종료하시겠습니까?", "종료여부", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }            
         }
     }
 }

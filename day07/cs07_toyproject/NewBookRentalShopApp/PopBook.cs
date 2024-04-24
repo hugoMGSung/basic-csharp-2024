@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using MetroFramework;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,7 +70,7 @@ namespace NewBookRentalShopApp
         {
             if (DgvResult.SelectedRows == null)
             {
-                MessageBox.Show("책을 선택하세요.");
+                MetroMessageBox.Show(this, "책을 선택하세요.", "책선택", MessageBoxButtons.OK);
                 return;
             }
 

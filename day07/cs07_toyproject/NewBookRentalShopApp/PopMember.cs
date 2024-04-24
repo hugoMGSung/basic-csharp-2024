@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using MetroFramework;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,12 +64,12 @@ namespace NewBookRentalShopApp
         {
             if (DgvResult.SelectedRows == null)
             {
-                MessageBox.Show("회원을 선택하세요.");
+                MetroMessageBox.Show(this, "회원을 선택하세요.", "회원선택", MessageBoxButtons.OK);
                 return;
             }
 
             var selData = DgvResult.SelectedRows[0];
-            // MessageBox.Show(selData.Cells[0].Value.ToString() + selData.Cells[1].Value.ToString());
+            // (selData.Cells[0].Value.ToString() + selData.Cells[1].Value.ToString());
             Helper.Common.SelMemberIdx = selData.Cells[0].Value.ToString();
             Helper.Common.SelMemberName = selData.Cells[1].Value.ToString();
 

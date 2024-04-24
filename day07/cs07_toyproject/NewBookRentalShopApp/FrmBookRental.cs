@@ -41,16 +41,25 @@ namespace NewBookRentalShopApp
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            var valid = true;
+            var errMsg = "";
+
             // 입력검증(Validation Check), 아이디, 패스워드를 안넣으면 
             if (string.IsNullOrEmpty(TxtMemNames.Text))
             {
-                MessageBox.Show("회원명을 선택하세요.");
-                return;
+                errMsg += "회원명을 선택하세요.\n";
+                valid = false;
             }
 
             if (string.IsNullOrEmpty(TxtBookNames.Text))
             {
-                MessageBox.Show("대출할 책을 선택하세요.");
+                errMsg += "대출할 책을 선택하세요.";
+                valid = false;
+            }
+
+            if (valid == false)
+            {
+                MetroMessageBox.Show(this.Parent.Parent, errMsg, "입력오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -115,19 +124,19 @@ namespace NewBookRentalShopApp
                     if (result > 0)
                     {
                         // this 메시지박스의 부모창이 누구냐, FrmLoginUser
-                        MetroMessageBox.Show(this, "저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //MessageBox.Show("저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MetroMessageBox.Show(this.Parent.Parent, "저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //("저장성공!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MetroMessageBox.Show(this, "저장실패!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MetroMessageBox.Show(this.Parent.Parent, "저장실패!", "저장", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
             }
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, $"오류  : {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(this.Parent.Parent, $"오류  : {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             TxtRentalIdx.Text = TxtMemNames.Text = string.Empty; // 입력, 수정, 삭제 이후에는 모든 입력값을 지워줘야 함
